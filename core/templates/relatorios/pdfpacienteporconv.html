@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Pacientes por Convênio</title>
+</head>
+<body>
+    <h1>Relatório de Pacientes por Convênio</h1>
+
+    {% for convenio, pacientes in pacientes_por_convenio.items %}
+        <h2>Convênio: {{ convenio }}</h2>
+        <table border="1">
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+            </tr>
+            {% for p in pacientes %}
+            <tr>
+                <td>{{ p.nome }}</td>
+                <td>{{ p.endereco }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+</body>
+</html>

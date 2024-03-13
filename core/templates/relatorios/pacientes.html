@@ -28,10 +28,44 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <p>
-                <a href="{% url 'pdf_pacientes' %}" role="button" target="_blank">
-                    Gerar PDF
-                </a>
-            </p>
+            <button id="btnGerarRelatorio">Gerar Relatório</button>
+
+            <div id="popupGerarRelatorio" style="display: none;">
+                <h2>Selecione o Tipo de Relatório:</h2>
+                <button id="btnRelatorioPacientes">Pacientes</button>
+                <button id="btnRelatorioPacientesporConv">Pacientes por Convênio</button>
+                <button id="btnRelatorioConsultas">Consultas</button>
+                <button id="btnRelatorioPacienteporAno">Consultas por ano</button>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+
+        $("#btnGerarRelatorio").click(function() {
+            $("#popupGerarRelatorio").show();
+        });
+
+        $("#btnRelatorioPacientes").click(function() {
+            window.open("{% url 'pdf_pacientes' %}", "_blank") ;
+        });
+
+        $("#btnRelatorioPacientesporConv").click(function() {
+            window.open("{% url 'pdf_pro_conv' %}", "_blank") ;
+        });
+
+        $("#btnRelatorioConsultas").click(function() {
+            window.open("{% url 'pdf_consulta' %}", "_blank") ;
+        });
+
+        $("#btnRelatorioPacienteporAno").click(function() {
+            window.open("{% url 'pdf_pac_por_ano' %}", "_blank") ;
+        });
+
+    });
+</script>
+
+
+
         </article>
 {% endblock %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Consultas por Especialidade e Mês</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relatório de Consultas por Especialidade e Mês</h1>
+
+    {% for especialidade, consultas_por_mes in relatorio.items %}
+        <h2>Especialidade: {{ especialidade }}</h2>
+        <table>
+            <tr>
+                <th>Mês/Ano</th>
+                <th>Número de Consultas</th>
+            </tr>
+            {% for mes_ano, num_consultas in consultas_por_mes.items %}
+            <tr>
+                <td>{{ mes_ano }}</td>
+                <td>{{ num_consultas }}</td>
+            </tr>
+            {% empty %}
+                <tr>
+                    <td>Nenhuma consulta</td>
+                    <td>Nenhuma consulta</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% empty %}
+        <p>Não há dados disponíveis para exibir.</p>
+    {% endfor %}
+</body>
+</html>

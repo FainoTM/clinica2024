@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'clinica2024.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'clinicaads2024',
+        'NAME': 'clinica2024',
         'USER': 'root',
-        'PASSWORD': 'alunoifro',
+        'PASSWORD': 'theofaino',
         'HOST': 'localhost',
         'PORT': '3306',
     }

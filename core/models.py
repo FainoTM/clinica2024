@@ -85,7 +85,6 @@ class Medico(models.Model):
         return self.nome
 
 
-
 class Paciente(models.Model):
     nome = models.CharField(max_length=200)
     endereco = models.CharField(max_length=250, blank=True, null=True)
